@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 
 // Car class definition
 class Car {
@@ -16,7 +17,6 @@ class Car {
 
     // Method to get car details
     public function getDetails(): string {
-        return "Car Details: " . $this->year . " " . $this->make . " " . $this->model;
+        return $this->year . " " . $this->make . " " . $this->model;
     }
-
 }
