@@ -1,22 +1,24 @@
 <?php
-/* What's the Problem? 
-    - PHP logic + HTML in one file
-    - Works, but not scalable
-    - Repetition will become a problem
+// What I learned: Using arrays + loops (and includes) keeps pages easy to update,
+// so I’ll reuse this approach in Course Project Phase One instead of copy/pasting sections.
 
-    How can we refactor this code so it’s easier to maintain?
-*/
+require_once __DIR__ . '/header.php';
 
-$items = ["Home", "About", "Contact"];
-
+// Use an associative array so labels + links stay together (more maintainable).
+$navItems = [
+  'Home' => 'index.php',
+  'About' => 'about.php',
+  'Contact' => 'contact.php'
+];
 ?>
 
+<nav>
+  <ul>
+    <?php foreach ($navItems as $label => $url): ?>
+      <li><a href="<?= $url ?>"><?= $label ?></a></li>
+    <?php endforeach; ?>
+  </ul>
+</nav>
 
-
-<ul>
-<?php foreach ($items as $item): ?>
-    echo "<p>$item</p>";
-    <li><?= $item ?></li>
-<?php endforeach; ?>
-</ul>
+<?php require_once __DIR__ . '/footer.php'; ?>
 
