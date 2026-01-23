@@ -1,7 +1,7 @@
 <?php 
 class Car {
     //properties 
-    public string $make; 
+    public string $make;
     public string $model;
     public int $year; 
 

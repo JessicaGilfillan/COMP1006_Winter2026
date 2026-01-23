@@ -2,8 +2,8 @@
 //store db connection info in a variable 
 $host = "localhost"; //hostname
 $db = "lab_one";
-$user = "kg"; 
-$pword = "fjhsjdhfjshfj"; 
+$user = "root"; 
+$pword = ""; 
 //data source name - type of db, location and db name 
 $dsn = "mysql:host=$host;dbname=$db";
 
