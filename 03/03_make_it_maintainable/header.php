@@ -1,14 +1,13 @@
 <?php
 // header.php
-// This file holds shared page header HTML.
-// We include/require it from index.php to avoid repeating code.<?php 
+// Shared page header HTML (reused across pages to avoid repetition).
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My PHP Page</title>
+  <meta charset="UTF-8" />
+  <title>My PHP Page</title>
 </head>
 <body>
-
-<h1>Welcome</h1>
-<hr>
+  <h1>Welcome</h1>
+  <hr>
