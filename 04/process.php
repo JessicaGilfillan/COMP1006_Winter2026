@@ -38,7 +38,6 @@ $comments  = filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_SPECIAL_CHARS)
 // ---------------------------------------------------------
 // 3) Access array-based item data
 // ---------------------------------------------------------
-// Instructor note:
 // - filter_input() does not work well with nested arrays
 // - Array inputs must be accessed directly
 $items = $_POST['items'] ?? [];
