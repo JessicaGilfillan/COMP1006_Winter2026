@@ -1,34 +1,30 @@
 <?php
-/* What's the Problem? 
-    - PHP logic + HTML in one file
-    - Works, but not scalable
-    - Repetition will become a problem
+// What I learned: Using arrays + loops + a single template page makes the site easier to maintain.
+// I’ll apply this in Course Project Phase One instead of duplicating pages.
 
-    How can we refactor this code so it’s easier to maintain?
-*/
+require_once __DIR__ . '/header.php';
 
-$items = ["Home", "About", "Contact"];
+$pages = [
+  'home' => ['title' => 'Home', 'content' => 'Welcome to my PHP page.'],
+  'about' => ['title' => 'About', 'content' => 'This is the About section.'],
+  'contact' => ['title' => 'Contact', 'content' => 'This is the Contact section.'],
+];
 
+$current = $_GET['page'] ?? 'home';
+if (!isset($pages[$current])) {
+  $current = 'home';
+}
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My PHP Page</title>
-</head>
-<body>
+<nav>
+  <ul>
+    <?php foreach ($pages as $key => $page): ?>
+      <li><a href="index.php?page=<?= $key ?>"><?= $page['title'] ?></a></li>
+    <?php endforeach; ?>
+  </ul>
+</nav>
 
-<h1>Welcome</h1>
+<h2><?= $pages[$current]['title'] ?></h2>
+<p><?= $pages[$current]['content'] ?></p>
 
-<ul>
-<?php foreach ($items as $item): ?>
-    <li><?= $item ?></li>
-<?php endforeach; ?>
-</ul>
-
-<footer>
-    <p>&copy; 2026</p>
-</footer>
-
-</body>
-</html>
+<?php require_once __DIR__ . '/footer.php'; ?>
