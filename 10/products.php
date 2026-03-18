@@ -4,7 +4,14 @@ require "includes/connect.php";
 require "includes/header.php";
 
 // Get all products, newest first
-
+//set up the query 
+$sql = "SELECT * FROM products ORDER BY created_at DESC"; 
+//prepare the query 
+$stmt = $pdo->prepare($sql); 
+//execute
+$stmt->execute(); 
+//use fetchAll to return results 
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 ?>
 
 <main class="container mt-4">
@@ -20,8 +27,7 @@ require "includes/header.php";
                             <img
                                 src="<?= htmlspecialchars($product['image_path']); ?>"
                                 class="card-img-top"
-                                alt="<?= htmlspecialchars($product['name']); ?>"
-                            >
+                                alt="<?= htmlspecialchars($product['name']); ?>">
                         <?php endif; ?>
 
                         <div class="card-body">
